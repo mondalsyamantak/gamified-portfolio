@@ -28,7 +28,7 @@ export default function SkillsPage() {
   return (
     <div className="flex flex-col gap-1 p-6 pb-20">
       <Typewriter className="text-white text-2xl font-8bit mb-4" speed={40}>* My STATS.</Typewriter>
-      <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-x-8 gap-y-4">
         {skills.map(s => <SkillBar key={s.name} {...s} />)}
       </div>
     </div>

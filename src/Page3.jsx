@@ -1,143 +1,191 @@
-import React from 'react'
-import Noise from './components/Noise'
-import SplitText from './components/SplitText'
-import sans from '@/assets/Sans_battle_glowing_eye.gif'
-import Typewriter from './components/Typewriter'
-import { useState } from 'react'
-import { useNavigate } from 'react-router'
+import { useEffect, useState } from "react";
+import shoya from "@/assets/sans-dancing.gif"; // your character image
+import { Progress } from "./components/ui/progress";
+import Typewriter from "./components/Typewriter";
+import AnimatedContent from "./components/AnimatedContent";
+import HomePage from "./pages/HomePage";
+import SkillsPage from "./pages/SkillsPage";
+import ContactPage from "./pages/ContactPage";
+import AboutMePage from "./pages/AboutMePage";
+import { useNavigate } from "react-router";
 
-function Page2() {
-    const [started, setStarted] = React.useState(false);
-    const navigate = useNavigate();
+export default function Page3() {
+  const [hp, setHp] = useState(0);
+  const maxHp = 101;
+  const [blinker, setBlinker] = useState(false);
 
-    const handleAnimationComplete = () => {
-        console.log('All letters have animated!');
-        setStarted(true);
-    };
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setHp(v => {
+  //       if (v >= maxHp) { clearInterval(timer); return v; }
+  //       return v + 1;
+  //     });
+  //   }, 30);
+  //   return () => clearInterval(timer);
+  // }, []);
+  const [val, setVal] = useState(0);
+  const navigate = useNavigate();
 
-    const [i, setI] = useState(0);
-        const messages = [
-            "I started learning web developement when I was in senior high school (class 12)",
-            "Today I have enough skills to be able to create and replicate full stack web applications",
-            "Visitor, continue on this path to view my arsenal, if you dare!"
-        ];
-        const [text, setText] = useState(messages[i]);
+  const [activePage, setActivePage] = useState("PROFILE");
+
+  // useEffect(() => {
+  //     const timer = setInterval(() => {
+  //       setVal(v => v + 17);
+  //     }, 720);
+
+  //     const timer2 = setInterval(() => {
+  //       setHp(v => {
+  //         if (v >= maxHp) { clearInterval(timer2); return v; }
+  //         return v + 1;
+  //       });
+  //     }, 30);
+
+
+  //       return () => {
+  //         clearInterval(timer);
+  //         clearInterval(timer2);
+  //       };
+  //     }, []);
+
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setVal(v => {
+          const next = v + 27;
+          if (next >= 100) {
+            clearInterval(timer);
+            // start HP timer only after loading finishes
+            const timer2 = setInterval(() => {
+              setHp(v => {
+                if (v >= maxHp) { setBlinker(true); clearInterval(timer2); return v; }
+                return v + 1;
+              });
+            }, 30);
+          }
+          return next;
+        });
+      }, 520);
+
+      return () => clearInterval(timer);
+    }, []);
+
+  // if (val < 100) {
+  if (val<=100) {
+    return (
+      <div
+        // onClick={() => setStarted(true)}
+        className="fixed inset-0 flex flex-col items-center justify-center bg-black text-white cursor-pointer 
+        gap-6
+        text-[clamp(1rem,2vw,3.5rem)]"
+      >
+        <p className="font-press-start">LOADING INTERFACE</p>
+        <Progress value={val} className={"max-w-[clamp(20rem,40vw,30rem)] bg-gray-600 text-white"}/>
+      </div>
+    );
+  }
 
   return (
-    <div>
-        {/* <div style={{width: '600px', height: '400px', position: 'relative', overflow: 'hidden'}}> */}
-        <div className='w-screen h-screen relative overflow-hidden p-30 bg-black 
-        justify-center items-center
-        flex flex-col gap-5'>
-        <Noise
-            patternSize={250}
-            patternScaleX={2}
-            patternScaleY={2}
-            patternRefreshInterval={2}
-            patternAlpha={15}
-        />
-
-        {/* <p className='text-white text-center font-press-start text-2xl'>HI! IM SYAMANTAK MONDAL</p> */}
-        <SplitText
-            text="MY QUALIFICATIONS: "
-            className="text-5xl font-press-start text-red-500"
-            delay={50}
-            duration={1.25}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 40 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            rootMargin="-100px"
-            textAlign="center"
-            onLetterAnimationComplete={handleAnimationComplete}
-            showCallback
-        />
-        <p className='text-gray-400 text-center font-press-start text-xs blink'>[ DOES ANYONE EVEN READ THEM THESE DAYS? ]</p>
-        <div className='grid grid-cols-[200px_minmax(900px,1fr)_100px] justify-center items-center mt-10 gap-4 border-0 mx-70'>
-            <img src={sans} className="w-30 h-40 mr-20 border-0" />
-            <div className='flex flex-col justify-left max-w-full h-max border-0 rounded-2xl'>
-                {started && (
-                <Typewriter speed={40} className="text-yellow-400 ">
-                    NAME: SYAMANTAK MONDAL
-                </Typewriter>
-                )}
-                {started && (
-                <Typewriter speed={40} className="text-yellow-400 ">
-                    AGE: 19
-                </Typewriter>
-                )}
-                {started && (
-                <Typewriter speed={40} className="text-yellow-400 ">
-                    EDUCATION: B.E INSTRUMENTATION AND ELECTRONICS ENGG, JADAVPUR UNIVERSITY
-                </Typewriter>
-                )}
-                {started && (
-                <Typewriter speed={40} className="text-yellow-400 ">
-                    YEAR OF GRADUATION: 2029
-                </Typewriter>
-                )}
-                {started && (
-                <Typewriter speed={40} className="text-red-400 ">
-                    TEAM NAME FOR SNAP SYNTAX: DEZIGNRS
-                </Typewriter>
-                )}
-            </div>
-        </div>
-
-        {/* <div className='w-screen h-max flex'>
-            <div onClick={() => {
-                console.log(i)
-                if (i>1) return;
-                setI((i + 1));
-                setText(messages[(i + 1) % messages.length]);
-            }
-            } 
-            className='cursor-pointer flex-1 flex
-            text-center border-4 rounded-lg w-200 h-300 overflow p-20 pb-30
-            my-10 mx-40
-            relative'
-            >
-                <Typewriter speed={40}>{text}</Typewriter>
-                <p className='text-red-700 font-press-start blink
-                absolute bottom-4 right-4
-                '>𝝯</p>
-            </div>
-        </div> */}
-        <div onClick={() => {
-            console.log(i)
-            if (i>1) return;
-            setI((i + 1));
-            setText(messages[(i + 1) % messages.length]);
-        }
-        } 
-        className='cursor-pointer flex
-        justify-center items-center
-        text-center border-4 rounded-lg w-300 min-h-50 p-10 pb-20
-        my-10 mx-80
-        relative'
-        >
-            <Typewriter speed={40}>{text}</Typewriter>
-            <p className='text-red-700 font-press-start blink
+    <div className="bg-black min-h-screen h-full w-screen font-press-start text-white flex flex-col items-center justify-center relative gap-6 p-4">
+      <p 
+      className='text-red-700 font-8bit blink text-2xl
             absolute bottom-4 right-4
-            '>𝝯</p>
+      '
+      onClick={() => {navigate(-1)}}
+      >
+        &lt;Go Back
+      </p>
+      {/* top level health etc thingy */}
+            <AnimatedContent
+        distance={150}
+        direction="vertical"
+        duration={1.3}
+        ease="power3.out"
+        initialOpacity={0}
+        animateOpacity
+        scale={1}
+        threshold={0.1}
+        delay={1}
+        className="flex w-full max-w-4xl justify-between items-center"
+      >
+        <p className="text-white text-[clamp(0.8rem,2vw,1rem)] tracking-widest">SAM &nbsp;LV 19</p>
+        <div className="flex items-center gap-4 text-[clamp(0.8rem,2vw,1rem)]">
+          <span>HP</span>
+          <div className="bg-yellow-400 px-4 py-1 text-black font-bold text-[clamp(0.8rem,2vw,1rem)] min-w-32 text-center">
+            {hp} / {maxHp}
+          </div>
         </div>
-
-        {started && (
-        <p className="text-gray-400 font-press-start text-xs text-center items-center justify-center flex bounce"
-        onClick={() => navigate('/page4')}
-        >
-            <span className="text-red-500 mr-2 text-base flex text-center">❤</span>
-            [ GO TO&nbsp;<p className='text-red-400'>CONSOLE</p>&nbsp;]
-        </p>
-        )}
-        
-
-        
-        
+      </AnimatedContent>
+      {/* <div className="flex w-full max-w-4xl justify-between items-center">
+        <p className="text-white text-sm tracking-widest">SAM &nbsp; LV 19</p>
+        <div className="flex items-center gap-4 text-sm">
+          <span>HP</span>
+          <div className="bg-yellow-400 px-4 py-1 text-black font-bold text-sm min-w-32 text-center">
+            {hp} / {maxHp}
+          </div>
         </div>
+      </div> */}
+
+      {/* middle portion */}
+      <div className="border border-white w-full max-w-4xl flex flex-col z-10 bg-black">
+        <CenterContent activePage={activePage} />
+      </div>
+      {/* bottom button */}
+      {/* <div className="grid grid-cols-4 gap-4 w-full max-w-4xl">
+        {["PROJECTS", "SKILLS", "HISTORY", "CONTACT"].map(label => (
+          <button
+            key={label}
+            className="border-2 border-yellow-400 text-yellow-400 py-3 text-sm tracking-widest hover:bg-yellow-400 hover:text-black transition-colors"
+          >
+            {label}
+          </button>
+        ))}
+      </div> */}
+      <AnimatedContent
+        distance={150}
+        direction="vertical"
+        reverse
+        duration={1.3}
+        ease="power3.out"
+        initialOpacity={0}
+        animateOpacity
+        scale={1}
+        threshold={0.1}
+        delay={1.3}
+        className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl"
+      >
+          {["PROFILE", "SKILLS", "ABOUT ME", "CONTACT"].map(label => (
+            <button
+              key={label}
+              className="border-2
+              flex justify-center items-center
+              border-yellow-400 text-yellow-400 py-3 text-sm tracking-widest hover:bg-yellow-400 hover:text-black transition-colors
+              text-[clamp(0.8rem,2vw,1rem)]
+              "
+              onClick={() => {
+                setActivePage(label)
+                console.log("Clicked", label);
+                console.log("Active page:", activePage);
+              }}
+            >
+              <span className="text-red-500 mr-2 text-base"
+              style={{display: (activePage==label)?"flex":"none"}}
+              >❤</span>
+              {label}
+            </button>
+          ))}
+      </AnimatedContent>
+
+      {<p className="bounce blink font-8bit text-xl text-gray-700">Click on any of the buttons to continue!</p>}
+
     </div>
-  )
+  );
 }
 
-export default Page2
+function CenterContent({ activePage }) {
+  switch (activePage) {
+    case "SKILLS": return <SkillsPage />;
+    case "PROFILE": return <HomePage/>;
+    case "ABOUT ME": return <AboutMePage />;
+    case "CONTACT": return <ContactPage />;
+    default: return <HomePage />; // your current character card
+  }
+}

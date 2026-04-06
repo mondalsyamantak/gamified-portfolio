@@ -41,17 +41,22 @@ import { Outlet } from 'react-router'
 export default function App() {
   const [started, setStarted] = useState(false);
 
-  if (!started) {
+   if (!started) {
+  // if (true) {    
     return (
       <div
         onClick={() => setStarted(true)}
-        style={{
-          position: "fixed", inset: 0,
-          display: "flex", alignItems: "center", justifyContent: "center",
-          background: "#000", color: "#fff", cursor: "pointer",
-          fontSize: "1.5rem",
-        }}
-        className='flex flex-col gap-5'
+        // style={{
+        //   position: "fixed", inset: 0,
+        //   display: "flex", alignItems: "center", justifyContent: "center",
+        //   background: "#000", color: "#fff", cursor: "pointer",
+        //   fontSize: "1.5rem",
+        // }}
+        className='
+        fixed inset-0 justify-center items-center bg-black cursor-pointer 
+        text-center
+
+        flex flex-col gap-5'
       >
         {/* <Shuffle
           text="Hello World"
@@ -68,8 +73,8 @@ export default function App() {
           loop={false}
           loopDelay={0}
         /> */}
-        <p className='text-yellow-400 font-press-start text-5xl blink space-x-1.5'>A ROGUE SKELETON SOUL</p>
-        <p className='text-white font-press-start text-sm'>GLIMPSES OF MY SKILLS</p>
+        <p className='text-yellow-400 font-press-start text-[clamp(1rem,4vw,3rem)]  blink space-x-1.5'>A ROGUE SKELETON SOUL</p>
+        <p className='text-white font-press-start text-[clamp(0.5rem,2vw,1rem)]'>GLIMPSES OF MY SKILLS</p>
         {/* <p className='text-white font-press-start text-sm opacity-40 bounce'> ♥️ [ CLICK TO START ] </p> */}
         <p className="text-gray-400 font-press-start text-xs bounce">
             <span className="text-red-500 mr-2 text-base">❤</span>
@@ -79,5 +84,5 @@ export default function App() {
     );
   }
 
-  return <div className='w-screen h-screen flex items-center justify-center '><Outlet /></div>;
+  return <div className='w-screen min-h-screen flex items-center justify-center '><Outlet /></div>;
 }

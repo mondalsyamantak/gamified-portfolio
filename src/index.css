@@ -120,9 +120,7 @@
   }
 }
 
-.font-press-start {
-  font-family: 'Press Start 2P', monospace;
-}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
@@ -157,6 +155,16 @@
 @font-face {
   font-family: '8bitOperator';
   src: url('./assets/fonts/PixelOperator.ttf') format('truetype');
+}
+
+
+
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('./assets/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+.font-press-start {
+  font-family: 'Press Start 2P', monospace;
 }
 
 .font-8bit {

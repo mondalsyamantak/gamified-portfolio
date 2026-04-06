@@ -8,7 +8,7 @@ import Page1 from './Page1'
 import Page2 from './Page2'
 import Page3 from './Page3' 
 // import Page4 from './Page4'
-import Page4Sample from './Page4-sampe'
+
 
 const router = createBrowserRouter([
   {
@@ -16,7 +16,6 @@ const router = createBrowserRouter([
     element: <App/>,
     children: [
       { 
-        //add sample children
         path: "/",
         element: <Page1 />,
       },
@@ -26,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "page3",
-        element: <Page4Sample/>
+        element: <Page3/>
       }
     ],
   },

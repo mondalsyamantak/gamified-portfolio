@@ -16,8 +16,10 @@ function Page2() {
   return (
     <div className='relative h-screen w-screen'>
         {/* <div style={{width: '600px', height: '400px', position: 'relative', overflow: 'hidden'}}> */}
-        <div className='w-screen h-screen relative overflow-hidden p-40 bg-black 
-        flex flex-col gap-5'>
+        <div className='w-screen h-screen relative overflow-hidden p-4 py-40 bg-black 
+        flex flex-col 
+        justify-center items-center
+        gap-5'>
         <p 
         className='text-red-700 font-8bit blink text-2xl
                 absolute bottom-4 right-4
@@ -37,7 +39,7 @@ function Page2() {
         {/* <p className='text-white text-center font-press-start text-2xl'>HI! IM SYAMANTAK MONDAL</p> */}
         <SplitText
             text="HELLO THERE! "
-            className="text-5xl font-press-start text-red-500"
+            className="text-[clamp(1rem,4vw,3.5rem)] font-press-start text-red-500"
             delay={50}
             duration={1.25}
             ease="power3.out"
@@ -50,14 +52,14 @@ function Page2() {
             onLetterAnimationComplete={handleAnimationComplete}
             showCallback
         />
-        <p className='text-white text-center font-press-start text-xl'>MY NAME IS SYAMANTAK</p>
-        <p className='text-gray-400 text-center font-press-start text-xs blink'>[ OR JUST CALL ME SAM ]</p>
-        <div className='flex-1 flex justify-center mt-10'>
-            <img src={sans} className="w-50 h-50" />
+        <p className='text-white text-center font-press-start text-[clamp(0.8rem,2vw,1rem)]'>MY NAME IS SYAMANTAK</p>
+        <p className='text-gray-400 text-center font-press-start text-[clamp(0.8rem,2vw,1rem)] blink'>[ OR JUST CALL ME SAM ]</p>
+        <div className='flex-1 flex justify-center mb-10 border-0 w-[clamp(9rem,10vw,12.5rem)] max-h-[clamp(9rem,10vw,12.5rem)]'>
+            <img src={sans} className="w-[clamp(9rem,10vw,12.5rem)] h-[clamp(9rem,10vw,12.5rem)]" />
         </div>
         
         {started && (
-        <Typewriter speed={40} className="text-yellow-400 text-center">
+        <Typewriter speed={40} className="text-yellow-400 text-center text-[clamp(0.8rem,2vw,1rem)]">
             IM AN ASPIRING WEB DEVELOPER
             CURRENTLY LEARNING REACTJS AND TAILWINDCSS
         </Typewriter>

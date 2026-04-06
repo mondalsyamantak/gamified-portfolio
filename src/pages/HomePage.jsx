@@ -1,14 +1,15 @@
 import React from 'react'
 import shoya from "@/assets/sans-fight.gif"; // your character image
 import Typewriter from '@/components/Typewriter';
+import { Separator } from '@/components/ui/separator';
 
 function HomePage() {
   return (
 
     <>
         
-        {/* TOP SECTION */}
-        <div className="flex gap-6 p-6">
+        {/* top part */}
+        <div className="flex gap-6 md:flex-row flex-col p-6">
           
           {/* LEFT — character image + label + fight button */}
           <div className="flex flex-col items-center gap-2 min-w-40">
@@ -18,7 +19,7 @@ function HomePage() {
             {/* <p className="bg-black border border-yellow-400 text-yellow-400 text-xs px-3 py-1 w-full text-center">
               WEB DEVELOPER
             </p> */}
-            <p className="border-2 border-red-600 text-red-500 text-xs px-2 py-2 w-full hover:bg-red-900 transition-colors">
+            <p className="border-2 border-red-600 text-red-500 text-xs px-2 py-2 w-45 hover:bg-red-900 transition-colors">
               WEB DEVELOPER
             </p>
             {/* <button className="border-2 border-red-600 text-red-500 text-sm px-6 py-2 w-full hover:bg-red-900 transition-colors">
@@ -27,14 +28,15 @@ function HomePage() {
             /* will add something later for 'fight' maybe*/}
           </div>
 
-          {/* RIGHT — stats */}
+          {/* right: stats */}
           <div className="flex flex-col gap-3 flex-1">
             <p className="text-yellow-400 text-2xl tracking-widest">Sam</p>
-            <div className="flex justify-between text-2xl text-gray-400 font-8bit">
+            <div className="flex justify-between text-[clamp(1rem,2vw,1.5rem)] text-gray-400 font-8bit">
               <span>[ a.k.a. Syamantak ] &nbsp;</span>  
               <span className='mr-auto'>LV 19</span>
               <span>Location: Jadavpur, Kolkata</span>
             </div>
+            <Separator/>
             <div className="flex flex-col gap-2 mt-2 text-2xl leading-relaxed">
               <p className='flex'> <p className='blink'>⯀&nbsp;</p><Typewriter speed={40} className='font-8bit'>A multi-class Creator: Code, Art, and Music.</Typewriter></p>
               <p className='flex'> <p className='blink'>⯀&nbsp;</p><Typewriter speed={40} className='font-8bit'>Master of both Guitar strings and Keyboard keys.</Typewriter></p>
@@ -44,7 +46,7 @@ function HomePage() {
           </div>
         </div>
 
-        {/* DIVIDER */}
+
         <div className="border-t border-dashed border-gray-600 mx-4" />
 
         {/* BOTTOM TEXT */}
