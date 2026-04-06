@@ -14,10 +14,18 @@ function Page2() {
         setStarted(true);
     };
   return (
-    <div>
+    <div className='relative h-screen w-screen'>
         {/* <div style={{width: '600px', height: '400px', position: 'relative', overflow: 'hidden'}}> */}
         <div className='w-screen h-screen relative overflow-hidden p-40 bg-black 
         flex flex-col gap-5'>
+        <p 
+        className='text-red-700 font-8bit blink text-2xl
+                absolute bottom-4 right-4
+        '
+        onClick={() => {navigate(-1)}}
+        >
+        &lt;Go Back
+        </p>
         <Noise
             patternSize={250}
             patternScaleX={2}

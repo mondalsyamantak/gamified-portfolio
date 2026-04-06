@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import SkillsPage from "./pages/SkillsPage";
 import ContactPage from "./pages/ContactPage";
 import AboutMePage from "./pages/AboutMePage";
+import { useNavigate } from "react-router";
 
 export default function Page4Sample() {
   const [hp, setHp] = useState(0);
@@ -23,6 +24,7 @@ export default function Page4Sample() {
   //   return () => clearInterval(timer);
   // }, []);
   const [val, setVal] = useState(0);
+  const navigate = useNavigate();
 
   const [activePage, setActivePage] = useState("HOME");
 
@@ -82,8 +84,15 @@ export default function Page4Sample() {
   }
 
   return (
-    <div className="bg-black min-h-screen w-screen font-press-start text-white flex flex-col items-center justify-center  gap-6 p-10">
-      
+    <div className="bg-black min-h-screen w-screen font-press-start text-white flex flex-col items-center justify-center relative gap-6 p-10">
+      <p 
+      className='text-red-700 font-8bit blink text-2xl
+            absolute bottom-4 right-4
+      '
+      onClick={() => {navigate(-1)}}
+      >
+        &lt;Go Back
+      </p>
       {/* TOP BAR */}
             <AnimatedContent
         distance={150}
@@ -146,13 +155,18 @@ export default function Page4Sample() {
           {["PROFILE", "SKILLS", "ABOUT ME", "CONTACT"].map(label => (
             <button
               key={label}
-              className="border-2 border-yellow-400 text-yellow-400 py-3 text-sm tracking-widest hover:bg-yellow-400 hover:text-black transition-colors"
+              className="border-2
+              flex justify-center items-center
+              border-yellow-400 text-yellow-400 py-3 text-sm tracking-widest hover:bg-yellow-400 hover:text-black transition-colors"
               onClick={() => {
                 setActivePage(label)
                 console.log("Clicked", label);
                 console.log("Active page:", activePage);
               }}
             >
+              <span className="text-red-500 mr-2 text-base"
+              style={{display: (activePage==label)?"flex":"none"}}
+              >❤</span>
               {label}
             </button>
           ))}

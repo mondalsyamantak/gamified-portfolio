@@ -4,8 +4,8 @@ import { Mail, Github, Linkedin, Instagram, Heart } from "lucide-react";
 const contacts = [
   { icon: Mail, label: "EMAIL", href: "mailto:syamantakmondal2006email.com" },
   { icon: Github, label: "GITHUB", href: "https://github.com/mondalsyamantak" },
-  { icon: Linkedin, label: "LINKEDIN", href: "https://linkedin.com/in/yourhandle" },
-  { icon: Instagram, label: "INSTAGRAM", href: "https://instagram.com/yourhandle" },
+  { icon: Linkedin, label: "LINKEDIN", href: "https://www.linkedin.com/in/syamantak-mondal-5b9893384/" },
+  { icon: Instagram, label: "INSTAGRAM", href: "https://instagram.com/im_samfloyd" },
 ];
 
 export default function ContactPage() {
