@@ -41,13 +41,13 @@ function Page1() {
                 '>𝝯</p>
             </div>
             <div>
-                <p className='text-gray-400 font-press-start text-xs bounce'
+                <p className='text-gray-400 font-press-start text-xs bounce cursor-pointer'
                 style={{
                     visibility: (i<2)? "hidden": "visible"
                 }}
                 onClick={() => navigate('/page2')}
                 >
-                    <span className="text-red-500 mr-2 text-base cursor-pointer">❤</span>
+                    <span className="text-red-500 mr-2 text-base ">❤</span>
                     [ CLICK TO CONTINUE ]
                 </p>
             </div>

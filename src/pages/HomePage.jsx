@@ -9,12 +9,12 @@ function HomePage() {
     <>
         
         {/* top part */}
-        <div className="flex gap-6 md:flex-row flex-col p-6">
+        <div className="flex gap-6 md:flex-row flex-col p-6 pb-6">
           
           {/* LEFT — character image + label + fight button */}
           <div className="flex flex-col items-center gap-2 min-w-40">
-            <div className="border border-white p-1">
-              <img src={shoya} className="w-42 h-48 object-cover" />
+            <div className="border border-white w-42 h-48 p-4">
+              <img src={shoya} className="w-full h-full object-cover" />
             </div>
             {/* <p className="bg-black border border-yellow-400 text-yellow-400 text-xs px-3 py-1 w-full text-center">
               WEB DEVELOPER
@@ -22,6 +22,7 @@ function HomePage() {
             <p className="border-2 border-red-600 text-red-500 text-xs px-2 py-2 w-45 hover:bg-red-900 transition-colors">
               WEB DEVELOPER
             </p>
+
             {/* <button className="border-2 border-red-600 text-red-500 text-sm px-6 py-2 w-full hover:bg-red-900 transition-colors">
               × FIGHT
             </button> */

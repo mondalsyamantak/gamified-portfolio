@@ -75,9 +75,9 @@ export default function Page3() {
         // onClick={() => setStarted(true)}
         className="fixed inset-0 flex flex-col items-center justify-center bg-black text-white cursor-pointer 
         gap-6
-        text-[clamp(1rem,2vw,3.5rem)]"
+        text-[clamp(1rem,2vw,3.0rem)]"
       >
-        <p className="font-press-start">LOADING INTERFACE</p>
+        <p className="font-press-start blink">LOADING INTERFACE</p>
         <Progress value={val} className={"max-w-[clamp(20rem,40vw,30rem)] bg-gray-600 text-white"}/>
       </div>
     );

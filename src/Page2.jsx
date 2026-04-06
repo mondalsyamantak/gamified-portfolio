@@ -59,8 +59,8 @@ function Page2() {
         </div>
         
         {started && (
-        <Typewriter speed={40} className="text-yellow-400 text-center text-[clamp(0.8rem,2vw,1rem)]">
-            IM AN ASPIRING WEB DEVELOPER
+        <Typewriter speed={40} className="text-yellow-400 text-center text-[clamp(0.8rem,2vw,1rem)] ">
+            IM AN ASPIRING FRONTEND DEVELOPER
             CURRENTLY LEARNING REACTJS AND TAILWINDCSS
         </Typewriter>
         )}
@@ -68,10 +68,14 @@ function Page2() {
         {started && (
         <p 
         onClick={()=> navigate('/page3')}
-        className="text-gray-400 font-press-start text-xs text-center bounce"
+        className="text-gray-400 font-press-start text-xs text-center bounce
+        flex
+        justify-center items-center
+        
+        cursor-pointer"
         >
             <span className="text-red-500 mr-2 text-base">❤</span>
-            [ CLICK TO CONTINUE ]
+            <p className='flex'>[ CONTINUE TO&nbsp;<p className='text-red-400'>CONSOLE</p>&nbsp;]</p>
         </p>
         )}
         
