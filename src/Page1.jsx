@@ -36,9 +36,9 @@ function Page1() {
             relative'
             >
                 <Typewriter speed={40} className='text-[clamp(0.8rem,2vw,1.0rem)]'>{text}</Typewriter>
-                <p className='text-red-700 font-press-start blink
+                <p className='text-red-700 font-press-start blink bounce
                 absolute bottom-4 right-4
-                '>𝝯</p>
+                '>▼</p>
             </div>
             <div>
                 <p className='text-gray-400 font-press-start text-xs bounce cursor-pointer'

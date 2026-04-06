@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import Shuffle from './components/Shuffle'
+
 import { Outlet } from 'react-router'
 
 // export default function App() {
@@ -58,21 +58,6 @@ export default function App() {
 
         flex flex-col gap-5'
       >
-        {/* <Shuffle
-          text="Hello World"
-          shuffleDirection="right"
-          duration={0.35}
-          animationMode="evenodd"
-          shuffleTimes={1}
-          ease="power3.out"
-          stagger={0.03}
-          threshold={0.1}
-          triggerOnce={true}
-          triggerOnHover
-          respectReducedMotion={true}
-          loop={false}
-          loopDelay={0}
-        /> */}
         <p className='text-yellow-400 font-press-start text-[clamp(1rem,4vw,3rem)]  blink space-x-1.5'>A ROGUE SKELETON SOUL</p>
         <p className='text-white font-press-start text-[clamp(0.5rem,2vw,1rem)]'>GLIMPSES OF MY SKILLS</p>
         {/* <p className='text-white font-press-start text-sm opacity-40 bounce'> ♥️ [ CLICK TO START ] </p> */}
