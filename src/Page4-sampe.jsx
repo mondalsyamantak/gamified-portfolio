@@ -11,6 +11,7 @@ import AboutMePage from "./pages/AboutMePage";
 export default function Page4Sample() {
   const [hp, setHp] = useState(0);
   const maxHp = 101;
+  const [blinker, setBlinker] = useState(false);
 
   // useEffect(() => {
   //   const timer = setInterval(() => {
@@ -47,26 +48,26 @@ export default function Page4Sample() {
     useEffect(() => {
       const timer = setInterval(() => {
         setVal(v => {
-          const next = v + 17;
+          const next = v + 27;
           if (next >= 100) {
             clearInterval(timer);
             // start HP timer only after loading finishes
             const timer2 = setInterval(() => {
               setHp(v => {
-                if (v >= maxHp) { clearInterval(timer2); return v; }
+                if (v >= maxHp) { setBlinker(true); clearInterval(timer2); return v; }
                 return v + 1;
               });
             }, 30);
           }
           return next;
         });
-      }, 720);
+      }, 520);
 
       return () => clearInterval(timer);
     }, []);
 
   // if (val < 100) {
-  if (false) {
+  if (val<=100) {
     return (
       <div
         // onClick={() => setStarted(true)}
@@ -156,6 +157,8 @@ export default function Page4Sample() {
             </button>
           ))}
       </AnimatedContent>
+
+      {<p className="bounce blink font-8bit text-xl text-gray-700">Click on any of the buttons to continue!</p>}
 
     </div>
   );

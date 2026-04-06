@@ -24,16 +24,16 @@ const router = createBrowserRouter([
         path: "/page2",
         element: <Page2 />,
       },
-      {
-        path: "/page3",
-        element: <Page3 />,
-      },
+      // {
+      //   path: "/page3",
+      //   element: <Page3 />,
+      // },
       {
         path: "/page4-backup",
         element: <Page4 />,
       },
       {
-        path: "page4",
+        path: "page3",
         element: <Page4Sample/>
       }
     ],

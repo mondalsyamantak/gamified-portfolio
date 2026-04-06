@@ -1,38 +1,42 @@
+import Typewriter from "@/components/Typewriter";
+
 const history = [
   {
-    role: "WEB APP ENGINEER",
-    place: "??????",
-    date: "2026 APR",
-    desc: "* Accepted the offer. Determination filled.",
+    heading1: "NAME",
+    val: "SYAMANTAK MONDAL",
+    desc: "^ nice to meet you!",
   },
   {
-    role: "STARTUP DEV INTERN",
-    place: "Vancouver, CANADA",
-    date: "2024 AUG",
-    desc: "* Built UI with React. Mined data with Python.",
+    heading1: "AGE",
+    val: "19",
+    desc: "^ as of 2026",
   },
   {
-    role: "MECH MAJOR",
-    place: "UNIVERSITY",
-    date: "2021-2025",
-    desc: "* Majoring in Mechanical Engineering. Researching Plasma Actuators.",
+    heading1: "EDUCATION",
+    val: "B.E. INSTRUMENTATION N' ELECTRONICS ENGG, JADAVPUR UNIVERSITY",
+    desc: "^ #cazzz",
   },
+  {
+    heading1: "YEAR OF GRADUATION",
+    val: "2029",
+    desc: "^ only if all goes well",
+  }
 ];
 
 export default function AboutMePage() {
   return (
     <div className="flex flex-col gap-6 p-6">
-      <p className="font-8bit text-white text-2xl">* You opened your INVENTORY.</p>
+      <Typewriter className="font-8bit text-white text-2xl">* About Me.</Typewriter>
 
-      <div className="flex flex-col gap-6 pl-4 pb-10">
-        {history.map(({ role, place, date, desc }) => (
-          <div key={role} className="flex flex-col gap-1">
-            <p className="font-press-start text-xs">
-              <span className="text-yellow-400">{role}</span>
-              <span className="text-white"> @ {place}</span>
+      <div className="flex flex-col gap-5 pl-4 pb-10">
+        {history.map(({ heading1, val, date, desc }) => (
+          <div key={heading1} className="flex flex-col gap-0">
+            <p className="font-press-start text-sm flex">
+              <p className="text-yellow-400">{heading1}</p>
+              <Typewriter className="text-white">:&nbsp;{val}</Typewriter>
             </p>
-            <p className="font-8bit text-gray-500 text-xl">{date}</p>
-            <p className="font-8bit text-white text-xl">{desc}</p>
+            <Typewriter className="font-8bit text-gray-500 text-xl">{date}</Typewriter>
+            <Typewriter className="font-8bit text-xl text-gray-300">{desc}</Typewriter>
           </div>
         ))}
       </div>
